@@ -18,3 +18,6 @@ venv*/
 
 # Vim
 *.swp
+
+# Project specific files
+local.py
