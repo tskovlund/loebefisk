@@ -1,0 +1,20 @@
+# Log files
+*.log
+
+# Python bytecode
+*.pyc
+
+# Development database
+*.sqlite3
+
+# Django static and media folders
+media
+
+# Python virtual environments
+venv*/
+
+# TLS keys (Let's encrypt)
+*.key
+
+# Vim
+*.swp
