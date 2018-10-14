@@ -1,6 +1,10 @@
 # Løbefisk
 
-## Setup
+## Setup for local development
+Modify `/loebefisk/local.sample.py` to contain your desired local settings and
+rename it to `/loebefisk/local.py`. When you're done, setup your local
+development environment by running the following commands: 
+
 ```shell
 git clone https://github.com/tskovlund/loebefisk.git
 cd loebefisk
