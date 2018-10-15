@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'o$21x=bxxfg40pj2z^$e8d!-3bhna%l5v1pn_ezkrckp#55#08'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+from .local import DEBUG
 
 ALLOWED_HOSTS = []
 
@@ -120,9 +120,11 @@ USE_TZ = True
 
 from .local import STATIC_ROOT
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
 # Media files
 from .local import MEDIA_ROOT
 MEDIA_URL = '/media/'
