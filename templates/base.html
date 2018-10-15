@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <title>{% block fulltitle %}{% block title %}Forside{% endblock %} - Løbefisk{% endblock %}</title>
     <meta name="description" content="" />
-    <meta name="viewport" content="width=750px" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     {% block head %}{% endblock %}
 </head>
 
@@ -17,6 +17,7 @@
 <div id="main">
     {% block header %}
     <div id="header">
+        <img id="header-img" src="{% static 'images/header.png' %}">
     </div>
     {% endblock %}
 
@@ -31,6 +32,10 @@
 
     <div id="content">
         {% block content %}{% endblock %}
+    </div>
+
+    <div id="footer">
+        <p>Copyright {% now 'Y' %}, Løbefisk.</p>
     </div>
 </div>
 </div>

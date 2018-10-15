@@ -1,0 +1,20 @@
+#post {
+    text-align: center;
+}
+
+#post-header h1 { 
+    font-size: 25px;
+    font-weight: normal;
+}
+
+#post-body {
+    margin-bottom: 20px;
+}
+
+#post-body a {
+    color: black;
+}
+
+#post-img {
+    width: 100%;
+}
