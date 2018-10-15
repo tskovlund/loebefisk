@@ -1,21 +1,45 @@
 {% extends "base.html" %}
 
-{% block title %}{{ post.title }} by {{ post.author }}{% endblock %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'gallery/style.css' %}">
+{% endblock %}
+
+{% block title %}{{ post.title }} af {{ post.author }}{% endblock %}
 
 {% block menu %}
-    <li><a href="{% url 'gallery:latest' %}">Nyeste</a></li>
-    {% if not post.is_last %} 
-    <li><a href="{% url 'gallery:previous' post.pk %}">Forrige</a></li>
-    {% endif %}
-    {% if not post.is_first %}
-    <li><a href="{% url 'gallery:next' post.pk %}">Næste</a></li>
-    {% endif %}
+    <li id="menu-prev">
+        {% with post.get_previous as p %} 
+        {% if p %}
+        <a href="{% url 'gallery:post' p.pk %}">Forrige</a>
+        {% endif %}
+        {% endwith %}
+    </li>
+    <li id="menu-newest"><a href="{% url 'gallery:latest' %}">Nyeste</a></li>
+    <li id="menu-next">
+        {% with post.get_next as p %} 
+        {% if p %}
+        <a href="{% url 'gallery:post' p.pk %}">Næste</a>
+        {% endif %}
+        {% endwith %}
+    </li>
 {% endblock %}
 
 {% block content %}
+<div id="post">
+    <div id="post-header">
+        <h1>{{ post.title }}</h1>
+    </div>
 
-<h1>{{ post.title }}</h1>
-<p>Author: {{ post.author }}</p>
+    <img id="post-img" src="{{ post.image.url }}" />
 
-<img src="{{ post.image.url }}" />
+    <div id="post-body">
+        <p>{{ post.pub_date.date }}</p>
+    </div>
+
+    <div id="post-footer">
+        <p>Lavet af {{ post.author }}</p>
+    </div>
+</div>
 {% endblock %}

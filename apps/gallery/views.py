@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 from django.utils import timezone
-from django.http import Http404
+from django.http import HttpResponseRedirect, Http404
 
 from .models import Post
 
@@ -9,27 +9,12 @@ class PostView(generic.DetailView):
     model = Post
     template_name = 'gallery/post.html'
 
-class LatestView(PostView):
+class LatestView(generic.View):
     def get_object(self):
         return Post.get_published_posts()[0]
 
-class PreviousView(PostView):
-    def get_object(self):
-        posts = Post.get_published_posts()
-        try:
-            post = Post.objects.get(pk=self.kwargs['pk'])
-            return posts[list(posts).index(post)+1]
-        except Post.DoesNotExist:
-            raise Http404("Post does not exist.")
-
-class NextView(PostView):
-    def get_object(self):
-        posts = Post.get_published_posts()
-        try:
-            post = Post.objects.get(pk=self.kwargs['pk'])
-            return posts[list(posts).index(post)-1]
-        except Post.DoesNotExist:
-            raise Http404("Post does not exist.")
+    def get(self, request):
+        return HttpResponseRedirect(self.get_object().get_absolute_url())
 
 class IndexView(generic.ListView):
     template_name = 'gallery/index.html'

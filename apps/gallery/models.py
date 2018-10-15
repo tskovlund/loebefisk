@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
@@ -15,6 +16,21 @@ class Post(models.Model):
         return cls.objects.filter(
             pub_date__lte=timezone.now()
         ).order_by('-pub_date')
+
+    def get_absolute_url(self):
+        return reverse('gallery:post', kwargs={'pk': self.pk})
+
+    def get_previous(self):
+        try:
+            return Post.get_published_posts().filter(pub_date__lt=self.pub_date).order_by('-pub_date')[0]
+        except IndexError:
+            return None
+
+    def get_next(self):
+        try:
+            return Post.get_published_posts().filter(pub_date__gt=self.pub_date).order_by('pub_date')[0]
+        except IndexError:
+            return None
 
     def is_first(self):
         posts = Post.get_published_posts()
