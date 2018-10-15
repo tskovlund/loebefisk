@@ -4,6 +4,35 @@
 
 {% block head %}
 <link rel="stylesheet" type="text/css" href="{% static 'gallery/style.css' %}">
+<script type="text/javascript">
+    function leftArrowPressed() {
+        {% with post.get_previous as p %} 
+        {% if p %}
+        window.location = "{% url 'gallery:post' p.pk %}";
+        {% endif %}
+        {% endwith %}
+    }
+
+    function rightArrowPressed() {
+        {% with post.get_next as p %} 
+        {% if p %}
+        window.location = "{% url 'gallery:post' p.pk %}";
+        {% endif %}
+        {% endwith %}
+    }
+
+    document.onkeydown = function(evt) {
+        evt = evt || window.event;
+        switch (evt.keyCode) {
+            case 37:
+                leftArrowPressed();
+                break;
+            case 39:
+                rightArrowPressed();
+                break;
+        }
+    };
+</script>
 {% endblock %}
 
 {% block title %}{{ post.title }} af {{ post.author }}{% endblock %}
@@ -43,3 +72,4 @@
     </div>
 </div>
 {% endblock %}
+
