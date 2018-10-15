@@ -37,10 +37,10 @@ class IndexView(generic.ListView):
     
     def get_queryset(self):
         """
-        return the last five published images (not including those set to be
+        return all published images (not including those set to be
         published in the future).
         """
-        return Post.get_published_posts()[:5]
+        return Post.get_published_posts()
 
 class DetailView(PostView):
     def get_queryset(self):
