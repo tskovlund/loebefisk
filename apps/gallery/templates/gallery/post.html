@@ -1,5 +1,17 @@
 {% extends "base.html" %}
 
+{% block title %}{{ post.title }} by {{ post.author }}{% endblock %}
+
+{% block menu %}
+    <li><a href="{% url 'gallery:latest' %}">Nyeste</a></li>
+    {% if not post.is_last %} 
+    <li><a href="{% url 'gallery:previous' post.pk %}">Forrige</a></li>
+    {% endif %}
+    {% if not post.is_first %}
+    <li><a href="{% url 'gallery:next' post.pk %}">Næste</a></li>
+    {% endif %}
+{% endblock %}
+
 {% block content %}
 
 <h1>{{ post.title }}</h1>

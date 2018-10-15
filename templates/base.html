@@ -1,6 +1,38 @@
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<!DOCTYPE html>
 
-<div id="content">
-  {% block content %}{% endblock %}
+{% load static %}
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>{% block fulltitle %}{% block title %}Forside{% endblock %} - Løbefisk{% endblock %}</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=750px" />
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+<div id="background">
+<div id="main">
+    {% block header %}
+    <div id="header">
+    </div>
+    {% endblock %}
+
+    <div id="menu">
+        <div id="menu-list">
+            <ul id="topnav">
+            {% block menu %}
+            {% endblock %}
+            </ul>
+        </div>
+    </div>
+
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
 </div>
+</div>
+</body>
+</html>
