@@ -120,7 +120,9 @@ USE_TZ = True
 
 from .local import STATIC_ROOT
 STATIC_URL = '/static/'
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 # Media files
 from .local import MEDIA_ROOT
 MEDIA_URL = '/media/'
