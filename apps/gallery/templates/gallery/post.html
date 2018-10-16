@@ -1,9 +1,6 @@
-{% extends "base.html" %}
+{% extends "gallery/base.html" %}
 
-{% load static %}
-
-{% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'gallery/style.css' %}">
+{% block gallery-head %}
 <script type="text/javascript">
     function leftArrowPressed() {
         {% with post.get_previous as p %} 
@@ -45,7 +42,7 @@
         {% endif %}
         {% endwith %}
     </li>
-    <li id="menu-newest"><a href="{% url 'gallery:latest' %}">Nyeste</a></li>
+    <li id="menu-newest"><a href="{% url 'gallery:posts' %}">Galleri</a></li>
     <li id="menu-next">
         {% with post.get_next as p %} 
         {% if p %}

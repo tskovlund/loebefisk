@@ -18,3 +18,29 @@
 #post-img {
     width: 100%;
 }
+
+#gallery-posts {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#gallery-posts li {
+    display: inline-block;
+    margin: 1%;
+    padding: 0;
+    width: 28%;
+}
+
+#gallery-posts a {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#gallery-posts img {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}

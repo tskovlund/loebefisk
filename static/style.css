@@ -9,12 +9,14 @@ body {
 #header {
     margin-top: 10px;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 #header-img {
-    display: block;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
     height: 80px;
-    margin: auto;
 }
 
 #topnav {

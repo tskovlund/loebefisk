@@ -1,15 +1,27 @@
-{% extends "base.html" %}
+{% extends "gallery/base.html" %}
+
+{% block title %}Galleri{% endblock %}
+
+{% block menu %}
+    <li></li>
+    <li id="menu-newest"><a href="{% url 'gallery:latest' %}">Nyeste</a></li>
+    <li></li>
+{% endblock %}
 
 {% block content %}
 
 {% if latest_post_list %}
-    <ul class="gallery_index">
+    <ul id="gallery-posts">
     {% for post in latest_post_list %}
-    <li class="index_post"><a href="{% url 'gallery:post' post.id %}">{{ post.title }} by {{ post.author }}</a></li>
+    <li>
+        <a href="{% url 'gallery:post' post.id %}">
+            <img src="{{ post.image.url }}" title="{{ post.title }} af {{ post.author }}">
+        </a>
+    </li>
     {% endfor %}
     </ul>
 {% else %}
-    <p>No polls are available.</p>
+    <p>Der er ingen tegninger.</p>
 {% endif %}
 
 {% endblock %}
