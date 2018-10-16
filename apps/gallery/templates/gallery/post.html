@@ -43,6 +43,7 @@
         {% endwith %}
     </li>
     <li id="menu-newest"><a href="{% url 'gallery:posts' %}">Galleri</a></li>
+    <li id="menu-random"><a href="{% url 'gallery:random' %}">Tilfældig</a></li>
     <li id="menu-next">
         {% with post.get_next as p %} 
         {% if p %}

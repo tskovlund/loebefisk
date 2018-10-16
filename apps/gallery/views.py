@@ -3,6 +3,8 @@ from django.views import generic
 from django.utils import timezone
 from django.http import HttpResponseRedirect, Http404
 
+import random
+
 from .models import Post
 
 class PostView(generic.DetailView):
@@ -27,6 +29,24 @@ class LatestView(generic.View):
         Redirect to the url of the most recently published post.
         """
         return HttpResponseRedirect(self.get_object().get_absolute_url())
+
+class RandomView(generic.View):
+    """
+    A view that shows the most recently published post.
+    """
+    def get_random_object(self):
+        """
+        Return the most recently published post.
+        """
+        published_posts = Post.get_published_posts()
+        r = random.randint(0, len(published_posts)-1)
+        return Post.get_published_posts()[r]
+
+    def get(self, request):
+        """
+        Redirect to the url of the most recently published post.
+        """
+        return HttpResponseRedirect(self.get_random_object().get_absolute_url())
 
 class PostsView(generic.ListView):
     """
