@@ -70,8 +70,8 @@ class GalleryTest(TestCase):
             kwargs={'pk':self.published_posts[-1].pk}))
 
     # IndexView
-    def test_index_view_posts(self):
-        response = self.client.get('/list/')
+    def test_posts_view(self):
+        response = self.client.get('/posts/')
         for p in self.published_posts:
             self.assertContains(response,p.pk) 
         for p in self.unpublished_posts:

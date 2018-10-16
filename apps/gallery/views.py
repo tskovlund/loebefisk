@@ -28,11 +28,11 @@ class LatestView(generic.View):
         """
         return HttpResponseRedirect(self.get_object().get_absolute_url())
 
-class IndexView(generic.ListView):
+class PostsView(generic.ListView):
     """
     A view that shows all published posts. 
     """
-    template_name = 'gallery/index.html'
+    template_name = 'gallery/posts.html'
     context_object_name = 'latest_post_list'
     
     def get_queryset(self):
