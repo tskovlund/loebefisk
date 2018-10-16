@@ -39,6 +39,8 @@
         {% with post.get_previous as p %} 
         {% if p %}
         <a href="{% url 'gallery:post' p.pk %}">Forrige</a>
+        {% else %}
+        <p class="menu-passive">Forrige</p>
         {% endif %}
         {% endwith %}
     </li>
@@ -48,6 +50,8 @@
         {% with post.get_next as p %} 
         {% if p %}
         <a href="{% url 'gallery:post' p.pk %}">Næste</a>
+        {% else %}
+        <p class="menu-passive">Næste</p>
         {% endif %}
         {% endwith %}
     </li>
@@ -59,7 +63,7 @@
         <h1>{{ post.title }}</h1>
     </div>
 
-    <img id="post-img" src="{{ post.image.url }}" />
+    <img id="post-img" title="{{ post.title }} af {{ post.author }}" src="{{ post.image.url }}" />
 
     <div id="post-body">
         <p>{{ post.pub_date.date }}</p>

@@ -1,3 +1,9 @@
+.menu-passive {
+    margin: 0;
+    padding: 0;
+    color: lightgrey;
+}
+
 #post {
     text-align: center;
 }
