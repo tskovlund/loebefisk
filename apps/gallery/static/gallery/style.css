@@ -25,6 +25,11 @@
     width: 100%;
 }
 
+#post-text {
+    display: inline-block;
+    text-align: left;
+}
+
 #gallery-posts {
     list-style-type: none;
     margin: 0;

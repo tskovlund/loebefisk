@@ -63,9 +63,14 @@
         <h1>{{ post.title }}</h1>
     </div>
 
+    {% if post.image %}
     <img id="post-img" title="{{ post.title }} af {{ post.author }}" src="{{ post.image.url }}" />
+    {% endif %}
 
     <div id="post-body">
+        <div id="post-text">
+            {{ post.text | safe }}
+        </div>
         <p>{{ post.pub_date.date }}</p>
     </div>
 

@@ -6,10 +6,10 @@ class PostAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,               {'fields': ['title', 'author']}),
         ('Date Information', {'fields': ['pub_date']}),
-        ('Media', {'fields': ['image']}),
+        ('Media', {'fields': ['image', 'text']}),
     ]
     list_display = ('title', 'pub_date', 'image')
     list_filter = ['pub_date']
-    search_fields = ['title']
+    search_fields = ['title', 'text']
 
 admin.site.register(Post, PostAdmin)
