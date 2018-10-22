@@ -6,6 +6,10 @@ body {
     font-family: Roboto, OpenSans, sans-serif;
 }
 
+a {
+    color: black;
+}
+
 #header {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -30,10 +34,6 @@ body {
 #topnav li {
     display: inline;
     width: 50px;
-}
-
-#topnav a {
-    color: black;
 }
 
 #main {

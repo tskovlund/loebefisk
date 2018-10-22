@@ -1,9 +1,12 @@
+/* base.html */
 .menu-passive {
     margin: 0;
     padding: 0;
     color: lightgrey;
 }
 
+
+/* post.html */
 #post {
     text-align: center;
 }
@@ -30,6 +33,26 @@
     text-align: left;
 }
 
+
+/* posts.html */
+#posts {
+    list-style-type: none;
+    margin-top: 20px;
+    padding: 0;
+    text-align: center;
+}
+
+#posts li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.posts-byline {
+    font-size: 10pt;
+}
+
+
+/* gallery.html */
 #gallery-posts {
     list-style-type: none;
     margin: 0;

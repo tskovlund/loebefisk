@@ -12,12 +12,13 @@
 {% block content %}
 
 {% if latest_post_list %}
-    <ul id="posts">
+    <ul id="gallery-posts">
     {% for post in latest_post_list %}
-        <li>
-            <a href="{{ post.url }}" title="{{ post.pub_date }}">{{ post.title }}</a> <br> 
-            <span class="posts-byline">af {{ post.author }}</span>
-        </li>
+    <li>
+        <a href="{% url 'gallery:post' post.id %}">
+            <img src="{{ post.image.url }}" title="{{ post.title }} af {{ post.author }}">
+        </a>
+    </li>
     {% endfor %}
     </ul>
 {% else %}
